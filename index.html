@@ -8,15 +8,12 @@
   </head>
   <body style="text-align: center">
     <h1>Jeffy's Library</h1>
-    <h3>List of Books</h3>
+    <h2>List of Books</h2>
     <img src="img/80383465.webp" alt="pile of books" width="500" height="500" />
     <ul>
-        <li>
-        </li>
+        <li></li>
     </ul>
-    <form>
-      <h4>Add A New Book</h4>
-      <br />
+      <form Add A New Book>
       <label for="title"><em> Book Title</em></label>
       <input id="title" type="text" name="title" required />
 
@@ -32,7 +29,7 @@
       <br />
 
       <label for="price"><em>Price</em></label>
-      <input id="price" type="number" name="price" required />
+      <input id="price" type="text" name="number" required />
       <br/>
 
       <label for="sales"> <em>Sale</em></label>
@@ -46,28 +43,26 @@
 
       <button type="submit">Add Book</button>
 
-      <br/>
-
       <button type="reset"> Reset</button>
 
 </form>
 
 <button onClick ="RemoveDomElement()">Remove</button>
-<p id="remove"></p>
+<input type="textarea" id="remove" name="remove"/>
 
   <script defer src="main.js"></script>
-  <script>
+  <!-- <div>
     let title= form.querySelector("#title").value;
     let genre = form.querySelector("#genre").value;
     let description = form.querySelector("#description").value;
     let price = form.querySelector("#price").value;
 
-    button.addEventLister('onClick', (e), RemoveDomElement={
+    button.addEventLister('onClick', (e), RemoveDomElement =>{
     let li = document.createElement("li");
     li.textContent = itemText;
     ul.append(li);
-        });
+    })
     
-  </script>
+  </div> -->
   </body>
 </html>
