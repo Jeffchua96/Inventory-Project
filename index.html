@@ -9,10 +9,11 @@
   <body style="text-align: center">
     <h1>Jeffy's Library</h1>
     <h3>List of Books</h3>
-    <img src="img/80383465.webp" alt="pile of books" />
-    <ul></ul>
-
-
+    <img src="img/80383465.webp" alt="pile of books" width="500" height="500" />
+    <ul>
+        <li>
+        </li>
+    </ul>
     <form>
       <h4>Add A New Book</h4>
       <br />
@@ -31,20 +32,42 @@
       <br />
 
       <label for="price"><em>Price</em></label>
-      <input id="price" type="text" name="price" required />
+      <input id="price" type="number" name="price" required />
+      <br/>
 
-      <br />
+      <label for="sales"> <em>Sale</em></label>
+      <input id="sales" type="checkbox"></input>
 
-      <label for="instock"> <em>In Stock</em></label>
-      <input id="instock" type="checkbox" name="title" />
+      <br/>
 
-      <br />
+      <label for="instock"> <em>In-Stock</em></label>
+      <input id="instock" type="checkbox" name="inStock"/>
+      <br/>
 
-      <input type="submit">Add Book</input>
-      <button id="reset">Reset</button>
-    </form>
-  
-  
+      <button type="submit">Add Book</button>
+
+      <br/>
+
+      <button type="reset"> Reset</button>
+
+</form>
+
+<button onClick ="RemoveDomElement()">Remove</button>
+<p id="remove"></p>
+
+  <script defer src="main.js"></script>
+  <script>
+    let title= form.querySelector("#title").value;
+    let genre = form.querySelector("#genre").value;
+    let description = form.querySelector("#description").value;
+    let price = form.querySelector("#price").value;
+
+    button.addEventLister('onClick', (e), RemoveDomElement={
+    let li = document.createElement("li");
+    li.textContent = itemText;
+    ul.append(li);
+        });
+    
+  </script>
   </body>
-  <script src="main.js"></script>
 </html>

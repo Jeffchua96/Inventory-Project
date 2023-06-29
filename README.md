@@ -54,7 +54,7 @@ Below is a helpful guide to assist in organizing your working process.
    - Choose a color scheme for your application. 
    - Utilize CSS Grid to create a two-column or greater layout for the page.
    - Apply cohesive and professional styling to the elements, making use of the specified colors.
-   - Create proper media queries to update our display for secific screen sizes.
+   - Create proper media queries to update our display for specific screen sizes.
    
 
 7. **Scale**

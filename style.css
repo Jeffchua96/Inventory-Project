@@ -1,3 +1,9 @@
-.img{
-image-rendering: pixelated;
+
+body{
+    display: grid;
+
+}
+   
+.ul li{
+    list-style: none;
 }
