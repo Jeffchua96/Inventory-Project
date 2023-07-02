@@ -1,9 +1,30 @@
-
-body{
-    display: grid;
-
+html,
+body {
+    height: auto;
+    width: auto;
+    margin: 10px;
+    padding: 0px;
+    background-color: greenyellow;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif blue;
+    font-size: 16px;
 }
-   
-.ul li{
-    list-style: none;
+.header{
+    display: inline-flex;
+    align-content: center;
+    background-color: aqua;
+}
+
+.header h1{
+   display: inline-flex;
+font-weight: bold sans-serif;
+font-stretch: semi-condensed;
+   padding-top: 0;
+   font-size: large;
+   justify-content: center;
+}
+
+.container h2{
+    display: flex;
+    align-content: center;
+  
 }
