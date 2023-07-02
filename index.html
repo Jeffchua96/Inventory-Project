@@ -9,17 +9,14 @@
   <body>
     <header>
       <h1> Jeffy's Library <span class= "Inventory-count" >Book Inventory(0 Books)</span></h1>
-      <p> Knoweldge is <span style="color:blue; font-style: bold"; >POWER!</span>So pick-up a book and start discovering your hidden <span style="color: blue; font-weight: bold, italic">POWER!</span> </p>
-      <hr>
+      <p> Knowledge is <span style="color:blue; font-style: bold"; >POWER!</span>So pick-up a book and start discovering your hidden <span style="color: blue; font-weight: bold">POWER!</span> </p>
     </header>
-    <br/>
     <div class="container">
       <h2>Inventory</h2>
     <img src="img/80383465.webp" alt="pile of books" width="100px" height="100px">
       
     <fieldset>
       <legend> Add a Book</legend>
-    <form id="addBookForm" action="addBook.php" method="POST">
       <label for="title"><em> Book Title</em> <br> </label>
 
       <input id="title" type="text" name="title" required />
@@ -47,6 +44,7 @@
       <br/>
 
       <button type="submit">Add Book</button>
+      
       <br/>
       <button type="reset">Reset</button>
      
