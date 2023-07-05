@@ -1,72 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link  href="style.css" rel="stylesheet" type="text/css"/>
-    <title>Inventory App Project</title>
-  </head>
-  <body>
-    <header>
-      <h1> Jeffy's Library <span class= "Inventory-count" >Book Inventory(0 Books)</span></h1>
-      <p> Knowledge is <span style="color:blue; font-style: bold"; >POWER!</span>So pick-up a book and start discovering your hidden <span style="color: blue; font-weight: bold">POWER!</span> </p>
-    </header>
-    <div class="container">
-      <h2>Inventory</h2>
-    <img src="img/80383465.webp" alt="pile of books" width="100px" height="100px">
-      
-    <fieldset>
-      <legend> Add a Book</legend>
-      <label for="title"><em> Book Title</em> <br> </label>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <title>Inventory App</title>
+</head>
+<body>
+    <section id="header">
+    <h1>Jeffy's Library</h1>
+    <p> Knowledge is <span style="color:blue; font-style: bold"; >POWER!</span>So pick-up a book and start discovering your hidden <span style="color: blue; font-weight: bold">POWER!<hr></p>
+    </section>
+    <fieldset> 
+    <legend> Books Info></legend>
+ <section id="invent-form">
+        <div class="invent">
+            <div class="d-flex" >
+                <div>
+                    <h4>Title</h4>
+                    <input type="text" placeholder="title" id="title">
+                </div>
+                <div>
+                    <h4>Price</h4>
+                    <input type="text" value="0" placeholder="price" id="price" onchange="getTotal()"> 
+                </div>
+            </div>
+            <div class="d-flex">
+                <div>
+                    <h4>inStock</h4>
+                    <input type="text" value="0" placeholder="inStock" id="inStock" onchange="getTotal()">
+                </div>
+                <div>
+                    <h4>Total</h4>
+                    <input type="text" placeholder="0" readonly value="0" id="total">
+                </div>
+            </div>
+            <div class="text-center">
+                <button onclick="addInventory()">Add Record</button>
+            </div> 
+        </div>
+    </section>
+    </fieldset>
+    <section id="invent-table">
+        <div class="table" >
+            <div class="d-flex-between">
+                <div>
+                    <h1>My invent</h1>
+                </div>
+                <div>
+                    <button class="clear" onclick="clearButton()">Clear Inventory<button>
+                </div>
+            </div>            
+            <div class="table-responsive" id="allInventory">
+                <table width="100%" border="1" id="inventoryTable">
+                    <tr>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>inStock</th>
+                        <th>Total</th>
+                        <th >Take Action</th>
+                    </tr>
+                    <tr>
+                        <th colspan="3">
+                            Grand Total
+                        </th>
+                        <td id="grandTotal" colspan="2" class="font-weight-bold"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
 
-      <input id="title" type="text" name="title" required />
-      <br />
-      <label for="genre"> <em>Genre</em><br></label>
+    <script src="main.js"></script>
 
-      <input id="genre" type="genre" name="title" required />
-      <br />
-      <label for="description"> <em>Description</em><br></label>
-      
-      <textarea type="text" name="description" id="description"></textarea>
-      <br />
-
-      <label for="price"><em>Price</em><br></label>
-      <input id="price" type="number" name="price" placeholder="$"required />
-      <br/>
-
-      <label for="sales"> <em>Sale</em></label>
-      <input id="sales" type="checkbox" name="sales"></input>
-
-      <br/> 
-
-      <label for="instock"> <em>In-Stock</em></label>
-      <input id="instock" type="checkbox" name="inStock"/>
-      <br/>
-
-      <button type="submit">Add Book</button>
-      
-      <br/>
-      <button type="reset">Reset</button>
-     
-</fieldset>
-</div>
-<form>
-  <fieldset>
-    <legend>Search Inventory</legend>
-    <div class="form">
-    <ul><li></li></ul>
     
-    <label for="search"> <em>Search</em></label>
-    <input id="search" type="text" name="search"/>
-    <br/>
-    <button type="submit">Search</button>
-    <br/>
-    <button for="remove">Remove item</button>
-    <input id="remove" name="title" type="text"/>
-    <br/>
-    </div>
-  </fieldset>
-  </form>
-  <script defer src="main.js"></script>
-  </body>
-</html>
+</body>
+</html

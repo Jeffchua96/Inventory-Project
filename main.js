@@ -1,69 +1,125 @@
-document.addEventListener("DOMContentLoaded", () => {
-    let form = document.querySelector("form");
-    let ul = document.querySelector("ul");
+getTotal = () => {
+    let price = document.querySelector('#price').value;
+    let inStock = document.querySelector('#inStock').value;
+    if(isNaN(price) || isNaN(inStock)){
+         alert("Quantity and Price Must be valid numbers")
+    }else{
+        let total = parseFloat( price * inStock);
+        document.querySelector('#total').value = total.toFixed(2);
+    }
+}
 
-
-form.addEventListener("submit", (e) => {
-console.log("this is working")
-e.preventDefault();
-
-
-let title= form.querySelector("#title").value;
-let genre = form.querySelector("#genre").value;
-let description = form.querySelector("#description").value;
-let price = form.querySelector("#price").value;
-let sale = form.querySelector("#sale").value;
-
-let itemText=`Title: ${title},Genre: ${genre},Description: ${description}, Price: ${price}`;
-
-let li = document.createElement("li");
-li.textContent = itemText;
-console.log(li)
-ul.append(li);
-});
-});
-
-
-const remove = document.createElement("button");
-remove.textContent = "Remove";
-li.append(remove);
-
-remove.addEventListener("click", (e) => {
-    ul.remove(li); 
-    updateInventoryCount();
-});
-
-document.updateInventoryCount('inventory-count',(e) => { 
-    e.inventoryCount = document.getElementById("inventory-count");
-    inventoryCount.textContent = document.querySelectorAll("li").length;
-});
+addInventory = () =>{
+    let totalInventory = JSON.parse(localStorage.getItem("totalInventory"));
+    if(totalInventory == null){
+        totalInventory = []
+    }
     
-function itemText(title, genre, description, price){
-    const li = document.createElement("li");
-    li.textContent += title;
+    let title = document.querySelector('#title').value;
+    let price = document.querySelector('#price').value;
+    let inStock = document.querySelector('#inStock').value;
 
-    if (genre) {
-      const strong = document.createElement("strong");
-      strong.textContent = "genre:";
-      li.append(document.createElement("br"), strong, genre);
+    if (title == "" || title == null) {
+        alert("please enter title")
+    }else if (price == "" || isNaN(price)) {
+        alert("enter a valid number")
+    }else if (inStock == "" || isNaN(inStock)) {
+        alert("enter a valid quantity")
+    }else{
+        let total = parseFloat( price * inStock);
+        total = total.toFixed(2);     
+        let newInventory = {
+            title : title,
+            price : price,
+            inStock : inStock,
+            total : total
+        }
+        totalInventory.push(newInventory)
+        localStorage.setItem("totalInventory", JSON.stringify(totalInventory))
+        window.location.reload() 
     }
-  
-    if (description) {
-      const strong = document.createElement("strong");
-      strong.textContent = "description: ";
-      li.append(document.createElement("br"), strong, description);
-    }
-  
-    if (price) {
-        const strong=document.createElement("strong");
-        strong.textContent="price:"
-              li.append(document.createElement("br"), strong,
-        price)
-    }
+}
 
-    return li;
+getGrandTotal = () =>{
+    let grandTotal = 0;
+    let totalInventory = JSON.parse(localStorage.getItem("totalinventory"));
+    if (totalInventory != null && totalInventory.length > 0) {
+        
+        for (let index = 0; index < totalInventory.length; index++) {
+
+            grandTotal  += parseFloat(totalInventory[index]["total"]);
+            grandTotal = grandTotal;
+
+
+            
+        }
     }
-let remove= document.getElementById("title").value;    
-ul.remove(li)
-console.log(remove);
-li.append(remove);
+    document.querySelector('#grandTotal').innerHTML = grandTotal;
+    
+}
+
+
+
+showInventory = () =>{
+    getGrandTotal();
+    let totalInventory = JSON.parse(localStorage.getItem("totalInventory"));
+    if (totalInventory != null && totalInventory.length > 0) {
+        let table = document.querySelector('#inventoryTable');
+        for (let index = 0; index < totalInventory.length; index++) {
+            let row = table.insertRow(1);
+            let inventoryTitle = row.insertCell(0);
+            let inventoryPrice = row.insertCell(1);
+            let inventoryInStock = row.insertCell(2);
+            let inventoryTotal = row.insertCell(3);
+            let inventoryAction = row.insertCell(4);
+
+            inventoryAction.className = "text-center";
+
+
+            inventoryTitle.innerHTML = totalInventory[index]["title"];
+            inventoryPrice.innerHTML = totalInventory[index]["price"];
+            inventoryInStock.innerHTML = totalInventory[index]["inStock"];
+            inventoryTotal.innerHTML = [index]["total"];
+
+            getGrandTotal();
+
+            let btn = document.createElement('input');
+            btn.type = "button";
+            btn.className = "btn";
+            btn.value = "delete";
+            btn.onclick = (function(index) {
+                return function() {
+
+                    if (confirm("Do you want to delete your inventory data ?")) {
+                        localStorage.clear();
+                        window.location.reload();
+
+                        totalInventory.splice(index, 1) 
+                        alert("item deleted")
+                        window.location.reload();
+                        localStorage.setItem("totalInventory", JSON.stringify(totalInventory)); 
+                        getGrandTotal();
+                    }     
+                }
+            })(index);
+            inventoryAction.appendChild(btn);
+        }
+    }
+}
+
+
+
+
+
+
+clearButton = () => {
+    if (confirm("Do you want to clear all your inventory data ? This action cannot be un done")) {
+        localStorage.clear();
+        window.location.reload();
+    }
+    
+}
+
+
+
+showInventory();
