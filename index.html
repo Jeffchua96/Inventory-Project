@@ -4,6 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="style.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400;500&family=Shantell+Sans:ital,wght@0,300;0,500;1,300;1,500&display=swap" rel="stylesheet">
     <title>Inventory App</title>
 </head>
 <body>
@@ -12,7 +13,7 @@
     <p> Knowledge is <span style="color:blue; font-style: bold"; >POWER!</span>So pick-up a book and start discovering your hidden <span style="color: blue; font-weight: bold">POWER!<hr></p>
     </section>
     <fieldset> 
-    <legend> Books Info></legend>
+    <legend> Books Info</legend>
  <section id="invent-form">
         <div class="invent">
             <div class="d-flex" >
@@ -28,11 +29,11 @@
             <div class="d-flex">
                 <div>
                     <h4>inStock</h4>
-                    <input type="text" value="0" placeholder="inStock" id="inStock" onchange="getTotal()">
+                    <input type="text" value="0" placeholder="inStock" id="inStock" onchange="inStock()">
                 </div>
                 <div>
                     <h4>Total</h4>
-                    <input type="text" placeholder="0" readonly value="0" id="total">
+                    <input type="number" placeholder="0" readonly value="0" id="total">
                 </div>
             </div>
             <div class="text-center">
@@ -45,7 +46,7 @@
         <div class="table" >
             <div class="d-flex-between">
                 <div>
-                    <h1>My invent</h1>
+                    <h1>Books Inventory</h1>
                 </div>
                 <div>
                     <button class="clear" onclick="clearButton()">Clear Inventory<button>

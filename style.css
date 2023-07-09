@@ -1,5 +1,3 @@
-
-/* Montserrat-fonts */
 @font-face{
     font-family:Montserrat-Regular ;
     src: url("../fonts/MontserratFonts/Montserrat-Regular.ttf");
@@ -22,33 +20,39 @@
 }
 
 body{
-    margin: 0px;
-    padding: 0px;
-    font-family: Montserrat-Regular;
-
+    margin: auto;
+    padding: auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, bold;
+    background: -moz-linear-gradient(right, green 10%, rgb(28,110,164) 52%, rgb(197,146,55) 100%);
+    background: -webkit-linear-gradient(left, rgb(206,89,55) 0%, rgb(28,110,164) 52%, rgb(197,146,55) 100%);
+    background: linear-gradient(to right, rgb(206,89,55) 0%, rgb(28,110,164) 52%, rgb(197,146,55) 100%);
+    }
+legend{
+    font-size: 30px;
+    font-weight: 900;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    color: #0a0;
 }
-
-/* first-section */
 section#header{
     text-align: center;
+    align-content: center;
     color: #bbbbbb;
     background-color: #0a043c;
     padding: 10px 20px;
-   font-size: 20px;
-   font-weight: 900;
-   font-family: Montserrat-Bold;
-
+    font-size: 30px;
+    font-weight: 900;
+    font-family: Montserrat-Bold;
 }
 
 footer{
     text-align: center;
     color: #bbbbbb;
-    background-color: #0a043c;
+    background-color: burlywood
     padding: 20px 20px;
-   font-size: 15px;
-   font-weight: 900;
-   font-family: Montserrat-Bold;
-   margin-top: 30px;
+    font-size: 15px;
+    font-weight: 900;
+    font-family: Montserrat-Bold;
+    margin-top: 30px;
 
 }
 
@@ -65,16 +69,13 @@ section#invent-form .invent{
     margin-right: 20%;
     background-color: #bbbbbb;
     padding-top: 50px; 
-    
-
 }
 
 h4{
-    padding: 0px !important;
-    margin: 0px !important;
+    padding: 10px !important;
+    margin: 10px !important;
     color: #0a043c;
-   
-    
+    font-family: 'Courier New', Courier, monospace, bold;
 }
 
 section#invent-form .invent  input{
@@ -91,7 +92,7 @@ section#invent-form .invent input ::placeholder{
 }
 
 section#invent-form .invent > div{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .d-flex{
@@ -105,6 +106,7 @@ section#invent-form .invent > div{
 
 .text-center{
     text-align: center;
+    justify-content: center;
 }
 
 button{

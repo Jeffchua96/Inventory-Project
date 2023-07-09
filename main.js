@@ -14,7 +14,6 @@ addInventory = () =>{
     if(totalInventory == null){
         totalInventory = []
     }
-    
     let title = document.querySelector('#title').value;
     let price = document.querySelector('#price').value;
     let inStock = document.querySelector('#inStock').value;
@@ -39,26 +38,19 @@ addInventory = () =>{
         window.location.reload() 
     }
 }
-
 getGrandTotal = () =>{
     let grandTotal = 0;
-    let totalInventory = JSON.parse(localStorage.getItem("totalinventory"));
+    let totalInventory = JSON.parse(localStorage.getItem("totalInventory"));
     if (totalInventory != null && totalInventory.length > 0) {
         
         for (let index = 0; index < totalInventory.length; index++) {
 
             grandTotal  += parseFloat(totalInventory[index]["total"]);
-            grandTotal = grandTotal;
-
-
-            
+            grandTotal = grandTotal;     
         }
     }
     document.querySelector('#grandTotal').innerHTML = grandTotal;
-    
 }
-
-
 
 showInventory = () =>{
     getGrandTotal();
@@ -74,7 +66,6 @@ showInventory = () =>{
             let inventoryAction = row.insertCell(4);
 
             inventoryAction.className = "text-center";
-
 
             inventoryTitle.innerHTML = totalInventory[index]["title"];
             inventoryPrice.innerHTML = totalInventory[index]["price"];
@@ -106,20 +97,10 @@ showInventory = () =>{
         }
     }
 }
-
-
-
-
-
-
 clearButton = () => {
     if (confirm("Do you want to clear all your inventory data ? This action cannot be un done")) {
         localStorage.clear();
         window.location.reload();
     }
-    
 }
-
-
-
 showInventory();
