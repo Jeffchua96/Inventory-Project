@@ -2,7 +2,7 @@ getTotal = () => {
     let price = document.querySelector('#price').value;
     let inStock = document.querySelector('#inStock').value;
     if(isNaN(price) || isNaN(inStock)){
-         alert("Quantity and Price Must be valid numbers")
+    alert("Quantity and Price Must be valid numbers")
     }else{
         let total = parseFloat( price * inStock);
         document.querySelector('#total').value = total.toFixed(2);
@@ -26,7 +26,7 @@ addInventory = () =>{
         alert("enter a valid quantity")
     }else{
         let total = parseFloat( price * inStock);
-        total = total.toFixed(2);     
+        total = total.toFixed(1);     
         let newInventory = {
             title : title,
             price : price,
@@ -72,6 +72,9 @@ showInventory = () =>{
             inventoryInStock.innerHTML = totalInventory[index]["inStock"];
             inventoryTotal.innerHTML = [index]["total"];
 
+            let total = parseFloat(totalInventory[index]["total"]);
+            total = total.toFixed(2);
+            inventoryTotal.innerHTML = total;
             getGrandTotal();
 
             let btn = document.createElement('input');
